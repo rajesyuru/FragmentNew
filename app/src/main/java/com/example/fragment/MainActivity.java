@@ -1,6 +1,7 @@
 package com.example.fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +15,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FragmentActivity()).commit();
+        Fragment fragment = FragmentActivity.newInstance("Hello there", 123);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
 
         Button button = findViewById(R.id.buttonThere);
         button.setOnClickListener(new View.OnClickListener() {
